@@ -2,9 +2,16 @@ from fastapi import FastAPI, HTTPException
 from uuid import uuid4
 from app.models import IngestRequest, IngestResponse, IngestionStatusResponse, BatchStatus
 from app import storage, queue_manager
+from fastapi.staticfiles import StaticFiles
+
+
+from fastapi.staticfiles import StaticFiles
+import os
 
 app = FastAPI()
 
+frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
+app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 @app.post("/ingest", response_model=IngestResponse)
 def ingest(data: IngestRequest):
     ingestion_id = str(uuid4())

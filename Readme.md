@@ -19,7 +19,7 @@ This is a simulated data ingestion system built using **FastAPI**. It supports p
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Yukti-Batra/data-ingestion-api
+git clone https://github.com/Yukti-Batra/data-ingestion-api.git
 cd DATA INGESTION
 ```
 
